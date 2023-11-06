@@ -16,7 +16,7 @@ export class landingController{
         .then((data)=> data.json())
         .then((formatted)=>{ 
             console.log(formatted)
-            res.render("results.ejs",{results:formatted,search:req.params.searchParam})
+            res.render("results2.ejs",{results:formatted,search:req.params.searchParam})
         })
     
        
