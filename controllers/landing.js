@@ -8,7 +8,7 @@ export class landingController{
     }
     static async searchtoApi(req,res,next){
         const param = req.body.searchParam
-        res.redirect(`/search/${param}`)
+        res.redirect(`/search2/${param}`)
     }
 
     static async renderResults(req,res,next){
