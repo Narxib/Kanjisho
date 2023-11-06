@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+body{
+    font-family:"Bebas Neue";
+}
+
+h2{ 
+    font-size: 10vh;
+}
+
+h2 > strong{
+    color:rgb(59, 177, 235);
+    font-family:"Bebas Neue"
+}
+
+nav h2{
+    font-size: 5vh;
+}
+
+nav strong{
+    color:rgb(255, 255, 255)
+}
+
+
+nav{
+    background-color: rgb(59, 177, 235);
+   
+}
+
+ul li:hover{
+    background-color: rgb(48, 141, 188) ;
+    border-radius: 10px;
+}
+
+.card{
+    margin:0px;
+}
+
+.card-body{
+    margin:10px;
+    border-bottom: 2px solid rgb(214, 214, 214);
+   
+
+}
+
+.card-body:first-child{
+    margin:50px;
+    
+}
+
+.card-body:last-child{
+    border:none;
+    
+}
+
+.first-half{
+    margin:0;
+    max-height:50%;
+}
+
+
+.main-kanji{
+    font-size: 5vh;
+}
+
+#searchButton{
+    color: rgb(59, 177, 235);
+    border-color:rgb(59, 177, 235)
+}
+
+#searchButton:hover{
+    background-color: rgb(59, 177, 235);
+    color:white;
+}
+
+
+#searchButton:focus{
+    border-color: rgb(59, 177, 235);
+}
