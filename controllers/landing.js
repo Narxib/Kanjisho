@@ -8,12 +8,17 @@ export class landingController{
     }
     static async searchtoApi(req,res,next){
         const param = req.body.searchParam
+        console.log("REQUEST RECEIVED | REDIRECTING")
         res.redirect(`/search/${param}`)
     }
 
     static async renderResults(req,res,next){
+        console.log("FETCHING DATA")
         fetch(`https://jisho.org/api/v1/search/words?keyword=${req.params.searchParam}`)
-        .then((data)=> data.json())
+        .then((data)=> {
+            console.log("DATA FETCHED | FORMATTING ")
+            data.json()
+        })
         .then((formatted)=>{ 
             console.log(formatted)
             res.render("results.ejs",{results:formatted,search:req.params.searchParam})
