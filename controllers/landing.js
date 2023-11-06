@@ -15,17 +15,15 @@ export class landingController{
     static async renderResults(req,res,next){
         console.log("FETCHING DATA")
         fetch(`https://jisho.org/api/v1/search/words?keyword=${req.params.searchParam}`)
-        .then((data)=> {
-            console.log("DATA FETCHED | FORMATTING ")
-            data.json()
-        })
+        .then((data)=>data.json())
+    
         .then((formatted)=>{ 
             console.log(formatted)
             res.render("results.ejs",{results:formatted,search:req.params.searchParam})
         })
     
-       
     }
+    
     static async renderResults2(req,res,next){
         const search = await req.params.searchParam
         jisho.searchForKanji(search)
