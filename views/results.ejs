@@ -21,32 +21,37 @@
     </form>
   </div>
 
-  <div class="card justify-content-center align-items-center">
-    <% results.data.forEach(function(item) { %>
-      <!-- Left portion -->
-      <div class="card-body w-75 d-flex flex-row m-2">
-        <div class="container first-half  p-2 rounded align-items-center h-25">
-          <p class="border-primary text-center"><%= item.japanese[0].reading %></p>
-          <p class="text-center main-kanji"><%= item.slug %></p>
-          <h5 class="font-italic bg-success text-center"><%= item.jlpt[0] %></h5>
-          <% if (item.is_common === true) { %>
-            <p class="text-center bg-primary">Common word</p>
-          <% } %>
-        </div>
-        <!-- Right portion -->
-        <div class="container m-2 rounded border-danger">
-          <p>Kunyomi: </p>
-          <% item.japanese.forEach(function(japaneseItem) { %>
-              <p class="pl-2 p-0">· <%= japaneseItem.reading %></p>
-          <% }); %>
-            <h5 class="font-italic">Meanings:</h3>
-          <% item.senses.forEach(function(sense) { %>
-            <p class="pl-2"><%= sense.english_definitions.join(', ') %></p>
-          <% }); %>
-        </div>
+  <% results.data.forEach(function(item){ %>
+    <div class="container d-grid">
+
+      <div class="kanjiSection">
+        <p><%= item.slug %></h5>
+        <% if (item.is_common === true) { %>
+          <p class="tag text-center">Common word</p>
+        <% } %>
       </div>
-      <% }); %>
-  </div>
+
+      <div class="onSection">
+        <p>Onyomi</p>
+          <p> <%= onyomireading.onyomi %> </p>
+      </div>
+
+      <div class="kunSection">
+        <p>Kunyomi</p>
+        <% item.japanese.forEach(function(read) { %>
+          <p> <%= read.reading %> </p>
+        <% }); %>
+      </div>
+
+      <div class="meaningSection">
+        <p>Meanings</p>
+        <% item.senses.forEach(function(sense) { %>
+          <p> ·<%= sense.english_definitions %> </p>
+        <% }); %>
+      </div>
+    </div>
+  <% }); %>
+  
 </body>
 
 <script src="https://kit.fontawesome.com/b6412059a4.js" crossorigin="anonymous"></script>

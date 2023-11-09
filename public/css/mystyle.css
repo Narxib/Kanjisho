@@ -2,6 +2,9 @@
 
 body{
     font-family:"Bebas Neue";
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
 h2{ 
@@ -32,35 +35,88 @@ ul li:hover{
     border-radius: 10px;
 }
 
-.card{
-    margin:0px;
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width:90vw;
+    background:white;
+    margin-top:50px;
+    gap:5px;
+    color:black;
+    border-bottom: 2px solid grey;
+    text-align:center;
 }
 
-.card-body{
-    margin:10px;
-    border-bottom: 2px solid rgb(214, 214, 214);
-   
-
-}
-
-.card-body:first-child{
-    margin:50px;
-    
-}
-
-.card-body:last-child{
+.container:last-child{
     border:none;
+}
+
+
+.kanjiSection { 
+    grid-area: 1 / 1 / 3 / 2; 
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:10px 0px;
+    height:60%;
+    margin:auto;
+}
+
+.kanjiSection p:nth-child(1){
+    background-color: rgb(218, 218, 218);
     
+    font-size:2vw;
+    border-radius: 15px;
+    width:20vw;
 }
 
-.first-half{
-    margin:0;
-    max-height:50%;
+.tag{
+    font-size:1.5vw;
+    background:green;
+    border-radius: 15px;
+    width:100%;
 }
 
+.kunSection {
+    grid-area: 1 / 2 / 2 / 3;
+    margin-top:10px;
+    align-content: center;
+    font-size: 3vh;
 
-.main-kanji{
-    font-size: 5vh;
+}
+
+.kunSection p:first-child{
+    background:rgb(218, 218, 218);
+    border-radius: 15px;
+}
+
+.onSection{
+    margin-top:10px;
+    grid-area: 1 / 3 / 2 / 4;
+    font-size: 3vh;
+}
+
+.onSection p:first-child{
+    background:rgb(218, 218, 218);
+    border-radius: 15px;
+}
+
+.meaningSection { 
+    text-align: center;
+    border-radius: 15px;
+    grid-area: 2 / 2 / 3 / 4; 
+    overflow-wrap: break-word;
+    border:2px solid white;
+    margin:30px;
+    font-size: 3vh;
+
+}
+
+.meaningSection p:first-child{
+    background:rgb(218, 218, 218);
+    border-radius: 15px;
 }
 
 #searchButton{
@@ -76,4 +132,42 @@ ul li:hover{
 
 #searchButton:focus{
     border-color: rgb(59, 177, 235);
+}
+
+@media (width<750px){
+  
+    .kanjiSection p:nth-child(1){
+        font-size:3vh;
+        margin:10px;
+        
+        
+        }
+        
+    .tag{
+        font-size:2vh;
+        width: 100%;
+    }
+
+    .kunSection{
+        display: flex;
+        flex-direction: column;
+      
+        font-size: 2.5vh;
+        align-content: center;
+    }
+
+    .onSection{
+        display: flex;
+        flex-direction: column;
+        font-size: 2.5vh;
+        align-content: center;
+    }
+
+    .meaningSection{
+        display: flex;
+        flex-direction: column;
+        font-size: 2.5vh;
+        margin:10px 10px;
+        align-content: center;
+    }
 }

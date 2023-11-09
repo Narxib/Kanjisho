@@ -14,31 +14,16 @@ export class landingController{
 
     static async renderResults(req,res,next){
         console.log("FETCHING DATA")
-        fetch(`https://jisho.org/api/v1/search/words?keyword=${req.params.searchParam}`)
+        const data = await fetch(`https://jisho.org/api/v1/search/words?keyword=${req.params.searchParam}`)
         .then((data)=> data.json())
-        .then((formatted)=>{ 
-            console.log(formatted)
-            res.render("results.ejs",{results:formatted,search:req.params.searchParam})
-        })
+        .then((formatted)=>{return formatted})
+        const onyomi = await jisho.searchForKanji("不")
+        data.data.forEach(result => {
+            console.log(result.slug)
+        });
+        
+        res.render("results.ejs",{results:data,search:req.params.searchParam,onyomireading:onyomi})
     
-    }
-    
-    static async renderResults2(req,res,next){
-        const search = await req.params.searchParam
-        jisho.searchForKanji(search)
-        .then(result=>{
-            const object = {
-                "kanji":search,
-                "jlpt":result.jlptLevel,
-                "kunreadings":result.kunyomi,
-                "onreadings":result.onyomi,
-                "meanings":result.meaning,
-            }
-            console.log(result)
-            res.render("results2.ejs",{result:object,search:search})
-        })
-    
-       
     }
    
 }
