@@ -19,12 +19,13 @@ app.set('view engine', 'ejs')
 app.set("views", __dirname + 'views')
 
 
-const PORT = process.env.PORT ?? 8080;
+
 
 app.use("/", searchRoute)
 app.use("/api/v1", apiV1Route)
 app.use("/api/v2", apiV2Route)
 
+const PORT = process.env.PORT ?? 8080;
 
 app.listen(PORT,(req,res)=>{
     console.log(`Server started at http://localhost:${PORT}`)
