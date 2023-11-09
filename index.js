@@ -19,7 +19,7 @@ app.set('view engine', 'ejs')
 app.set("views", __dirname + 'views')
 
 
-let PORT = process.env.PORT ?? 8080
+const PORT = process.env.PORT ?? 8080;
 
 app.use("/", searchRoute)
 app.use("/api/v1", apiV1Route)

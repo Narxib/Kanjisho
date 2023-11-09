@@ -17,10 +17,9 @@ export class landingController{
         const data = await fetch(`https://jisho.org/api/v1/search/words?keyword=${req.params.searchParam}`)
         .then((data)=> data.json())
         .then((formatted)=>{return formatted})
+        const reg = `私-\d`
         const onyomi = await jisho.searchForKanji("不")
-        data.data.forEach(result => {
-            console.log(result.slug)
-        });
+        console.log(data.data[0].slug)
         
         res.render("results.ejs",{results:data,search:req.params.searchParam,onyomireading:onyomi})
     
