@@ -1,4 +1,5 @@
 import JishoAPI from 'unofficial-jisho-api';
+import fetch from 'node-fetch';
 
 const jisho = new JishoAPI();
 
