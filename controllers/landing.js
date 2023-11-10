@@ -16,12 +16,11 @@ export class landingController{
         console.log("FETCHING DATA")
         const data = await fetch(`https://jisho.org/api/v1/search/words?keyword=${req.params.searchParam}`)
         .then((data)=> data.json())
-        .then((formatted)=>{return formatted})
-        const reg = `私-\d`
+        .then((formatted)=>res.json(formatted))
         const onyomi = await jisho.searchForKanji("不")
         console.log(data.data[0].slug)
         
-        res.render("results.ejs",{results:data,search:req.params.searchParam,onyomireading:onyomi})
+        
     
     }
    
