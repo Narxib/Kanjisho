@@ -14,14 +14,10 @@ export class landingController{
 
     static async renderResults(req,res,next){
         console.log("FETCHING DATA")
-        const data = await fetch(`https://jisho.org/api/v1/search/words?keyword=${req.params.searchParam}`)
+        const data = await fetch(`https://jisho.org/api/v1/search/words?keyword=店`)
         .then((data)=> data.json())
         .then((formatted)=>res.json(formatted))
-        const onyomi = await jisho.searchForKanji("不")
-        console.log(data.data[0].slug)
-        
-        
-    
+
     }
    
 }
