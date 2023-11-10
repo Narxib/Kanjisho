@@ -6,7 +6,7 @@
   <link rel="icon" type="image/x-icon" href="/icon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/css/mystyle.css"> 
-  <title>Kanjisho | <%= search%> search </title>
+  <title>Kanjisho | <%= search %> search </title>
 </head>
 
 <body>
@@ -21,36 +21,57 @@
     </form>
   </div>
 
-  <% results.data.forEach(function(item){ %>
+    <h1 class="text-center">KANJI RESULTS</h1>
     <div class="container d-grid">
-
       <div class="kanjiSection">
-        <p><%= item.slug %></h5>
-        <% if (item.is_common === true) { %>
-          <p class="tag text-center">Common word</p>
-        <% } %>
+        <p><%= kanjiResults.query %></h5>
+        
       </div>
 
       <div class="onSection">
         <p>Onyomi</p>
-          <p> <%= onyomireading.onyomi %> </p>
+          <p> <%= kanjiResults.onyomi[0] %> </p>
       </div>
 
       <div class="kunSection">
         <p>Kunyomi</p>
-        <% item.japanese.forEach(function(read) { %>
-          <p> <%= read.reading %> </p>
+        <% kanjiResults.kunyomi.forEach(function(read) { %>
+          <p> <%= read %> </p>
         <% }); %>
       </div>
 
       <div class="meaningSection">
         <p>Meanings</p>
-        <% item.senses.forEach(function(sense) { %>
-          <p> ·<%= sense.english_definitions %> </p>
-        <% }); %>
+          <p> <%= kanjiResults.meaning %> </p>
       </div>
     </div>
-  <% }); %>
+    <h1 class="text-center">VOCABULARY RESULTS</h1>
+
+    <% vocabResults.data.forEach(function(item){ %>
+      <div class="container d-grid">
+  
+        <div class="kanjiSection">
+          <p><%= item.slug %></h5>
+          <% if (item.is_common === true) { %>
+            <p class="tag text-center">Common word</p>
+          <% } %>
+        </div>
+        <div class="kunSection">
+          <p>Kunyomi</p>
+          <% item.japanese.forEach(function(read) { %>
+            <p> <%= read.reading %> </p>
+          <% }); %>
+        </div>
+  
+        <div class="meaningSection">
+          <p>Meanings</p>
+          <% item.senses.forEach(function(sense) { %>
+            <p> ·<%= sense.english_definitions %> </p>
+          <% }); %>
+        </div>
+      </div>
+    <% }); %>
+
   
 </body>
 

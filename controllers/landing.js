@@ -1,5 +1,4 @@
 import JishoAPI from 'unofficial-jisho-api';
-import fetch from 'node-fetch';
 
 const jisho = new JishoAPI();
 
@@ -14,16 +13,11 @@ export class landingController{
     }
 
     static async renderResults(req,res,next){
-        const searchQuery = req.body.searchParam
-        try {
-            const data = await fetch(`https://jisho.org/api/v1/search/words?keyword=${searchQuery}`);
-            const formatted = await data.json()
-            res.json(formatted)
-          } catch (error) {
-            // TypeError: Failed to fetch
-            res.json({'There was an error':error});
-          }
-        
+        const searchQuery = req.params.searchParam
+        const kanjiData = await jisho.searchForKanji(searchQuery)
+        const vocabData = await jisho.searchForPhrase(searchQuery)
+       
+        res.render("results.ejs",{kanjiResults:kanjiData, vocabResults:vocabData, search:kanjiData.query})
     }
    
 }
