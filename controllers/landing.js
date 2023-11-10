@@ -21,8 +21,7 @@ export class landingController{
             res.json(formatted)
           } catch (error) {
             // TypeError: Failed to fetch
-            console.log('There was an error', error);
-            res.redirect("/")
+            res.json({'There was an error':error});
           }
         
     }
