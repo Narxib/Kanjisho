@@ -15,9 +15,8 @@ export class landingController{
     static async renderResults(req,res,next){
         console.log("FETCHING DATA")
         const data = await fetch(`https://jisho.org/api/v1/search/words?keyword=店`)
-        .then((data)=> data.json())
-        .then((formatted)=>res.json(formatted))
-
+        res.json(data)
+        
     }
    
 }
