@@ -16,7 +16,7 @@ export class landingController{
         const searchQuery = req.params.searchParam
         const kanjiData = await jisho.searchForKanji(searchQuery)
         const vocabData = await jisho.searchForPhrase(searchQuery)
-        console.log(kanjiData.found)
+        console.log(vocabData.data[2])
        
         res.render("results.ejs",{kanjiResults:kanjiData, vocabResults:vocabData, search:kanjiData.query})
     }
