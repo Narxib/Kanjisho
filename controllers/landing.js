@@ -13,8 +13,17 @@ export class landingController{
     }
 
     static async renderResults(req,res,next){
-        console.log("FETCHING DATA")
-        res.json({data:"sola"})
+        const searchQuery = req.body.searchParam
+        try {
+            const data = await fetch(`https://jisho.org/api/v1/search/words?keyword=${searchQuery}`);
+            const formatted = await data.json()
+            res.json(formatted)
+          } catch (error) {
+            // TypeError: Failed to fetch
+            console.log('There was an error', error);
+            res.redirect("/")
+          }
+        
     }
    
 }
