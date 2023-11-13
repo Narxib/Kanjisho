@@ -21,8 +21,9 @@
     </form>
   </div>
 
+  <%if (kanjiResults.found) { %>
     <h1 class="text-center">KANJI RESULTS</h1>
-    <%if (kanjiResults.found) { %>
+    
         <div class="container d-grid">
           <div class="kanjiSection">
             <p><%= kanjiResults.query %></h5>
@@ -45,12 +46,11 @@
               <p> <%= kanjiResults.meaning %> </p>
           </div>
         </div>
-      <%} else { %>
-        <h5 class="text-center">NOT RESULTS</h5>
+        <h1 class="text-center">VOCABULARY RESULTS</h1>
       <% } %>
 
 
-    <h1 class="text-center">VOCABULARY RESULTS</h1>
+    
 
     <% vocabResults.data.forEach(function(item){ %>
       <div class="container d-grid">
