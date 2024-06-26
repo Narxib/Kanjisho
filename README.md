@@ -4,5 +4,5 @@
 
 I created this site with the idea in mind of being able to look up for kanji meaning in a easy way. The name is originated from the japanese words 漢字 meaning "Kanji" + 辞書 (Jisho) witch means dictionary = Kanjisho
 Powered by the [unnoficial api](https://kanjiapi.dev) of [Jisho.org](https://jisho.org)
-
+#
 ⛓ Site not deployed, it was made for learning purposes only
