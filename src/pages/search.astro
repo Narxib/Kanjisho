@@ -1,0 +1,16 @@
+---
+import { string } from "astro/zod";
+import Layout from "../layouts/Layout.astro";
+const data = await Astro.request.formData();
+const term = data.get("kanji");
+console.log(typeof term);
+
+const fetchedData = await fetch(`https://kanjiapi.dev/v1/words/${term}`).then(
+    (data) => data.json(),
+);
+console.log(fetchedData);
+---
+
+<Layout title=`${term} results`>
+    <h1>{term}</h1>
+</Layout>
