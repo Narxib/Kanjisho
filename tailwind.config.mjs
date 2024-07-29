@@ -4,8 +4,10 @@ export default {
 	theme: {
 		extend: {
 			fontFamily:{
-				anton:["Anton SC", "sans-serif"]
-			}
+				"anton":["Anton SC", "sans-serif"],
+				"oswald":["Oswald", "sans-serif"],
+				"sansjp":["Noto Sans JP", "sans-serif"]
+			},
 		},
 	},
 	plugins: [],

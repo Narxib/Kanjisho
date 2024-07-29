@@ -1,16 +1,27 @@
 ---
-import { string } from "astro/zod";
 import Layout from "../layouts/Layout.astro";
+import KanjiDisplay from "../components/KanjiDisplay.astro";
+import VocabDisplay from "../components/VocabDisplay.astro";
+
 const data = await Astro.request.formData();
 const term = data.get("kanji");
-console.log(typeof term);
 
-const fetchedData = await fetch(`https://kanjiapi.dev/v1/words/${term}`).then(
-    (data) => data.json(),
-);
-console.log(fetchedData);
+const fetchKanji = async (term) => {
+    return await fetch(
+        `https://kanjialive-api.p.rapidapi.com/api/public/kanji/${term}`,
+        {
+            method: "GET",
+            headers: {
+                "x-rapidapi-key":
+                    "cd76a844dfmshd6ff1d53a7f74d5p1e6f2bjsnc4911c9e0550",
+                "x-rapidapi-host": "kanjialive-api.p.rapidapi.com",
+            },
+        },
+    ).then((data) => data.json());
+};
+const fetchedData = await fetchKanji(term);
 ---
 
-<Layout title=`${term} results`>
-    <h1>{term}</h1>
+<Layout title={`Results for ${term}`}>
+    {(<KanjiDisplay fetchedData={fetchedData} />)}
 </Layout>
