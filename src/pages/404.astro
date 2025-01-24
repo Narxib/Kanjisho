@@ -1,18 +1,10 @@
----
-import Layout from "../layouts/Layout.astro";
----
-
-<section class="flex m-auto flex-col items-center pt-[960px] font-5xl w-1/2">
-    <h1 class="font-anton text-5xl">404</h1>
-    <h2 class="font-anton text-2xl">PAGE NOT FOUND</h2>
-    <a class="underline decoration-black decoration-2" href="/">Return home</a>
+<section
+    class="flex h-screen w-full flex-col m-auto text-center justify-center items-center font-5xl"
+>
+    <h1 class="font-anton text-5xl font-bold">404</h1>
+    <h2 class="font-anton text-2xl font-bold">PAGE NOT FOUND</h2>
+    <a
+        class="underline hover:text-blue-400 hover:decoration-blue-500 decoration-black decoration-1"
+        href="/">Return home</a
+    >
 </section>
-
-<style>
-    a {
-        text-decoration: underline;
-    }
-    a:hover {
-        color: dodgerblue;
-    }
-</style>
