@@ -1,0 +1,11 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ThemeButton from "../components/ThemeButton.jsx";
+import SearchBar from "../components/SearchBar.astro";
+
+---
+
+<Layout title="Kanjisho - Japanese dictionary">
+	<ThemeButton client:load />
+	<SearchBar />
+</Layout>
