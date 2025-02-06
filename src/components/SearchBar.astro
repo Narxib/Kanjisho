@@ -1,16 +1,17 @@
 ---
-import Search from "../icons/search.astro";
----
+import Search from "../icons/search.jsx";
 
+---
 <div class="flex h-dvh flex-col justify-center align-middle items-center">
     <h1 class="font-anton text-5xl text-sky-500">
-        KAN<span class="text-black font-anton">JISHO</span>
+        KAN<span id="jisho" class="text-black font-anton">JISHO</span>
     </h1>
     <div
         class="flex bg-zinc-100 border-gray-300 mt-4 rounded-xl lg:w-1/3 w-90%"
     >
-        <form action="/search" class="flex w-full" method="POST">
+        <form  id="search-form" class="flex w-full" >
             <input
+               
                 class="bg-zinc-100 ml-4 text-[20px] w-full focus-visible:outline-none"
                 type="text"
                 placeholder="Search..."
@@ -25,10 +26,15 @@ import Search from "../icons/search.astro";
             >
         </form>
     </div>
+     
 </div>
-
-<style>
-    input:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 50px inset rgb(244, 244, 245); /* Change the color to your own background color */
-    }
-</style>
+<script>
+    document.getElementById("search-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const input = event.target.kanji.value.trim();
+        console.log("submit detected")
+        window.location.replace(`/search/${input}`); // 🔥 Asegura la codificación correcta
+        
+    });
+    
+</script>

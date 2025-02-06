@@ -1,7 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import KanjiDisplay from "../components/KanjiDisplay.astro";
-import VocabDisplay from "../components/VocabDisplay.astro";
+import Layout from "../../layouts/Layout.astro";
+import KanjiDisplay from "../../components/KanjiDisplay.astro";
+import VocabDisplay from "../../components/VocabDisplay.astro";
 
 const data = await Astro.request.formData();
 const term = data.get("kanji");

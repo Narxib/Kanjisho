@@ -3,18 +3,34 @@ interface Props {
 	title: string;
 }
 import Navbar from "../components/Navbar.astro";
+import { initTheme } from "../utils/theme.js";
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="/src/layouts/styles.css" />
 		<link rel="icon" type="image/svg+xml" href="/icon.png" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<script>
+		import { initTheme } from "../utils/theme";
+
+			(function() {
+				initTheme()
+			  const theme = localStorage.getItem("theme") || "light";
+			  if (theme === "dark") {
+				document.documentElement.classList.add("dark");
+			  } else {
+				document.documentElement.classList.remove("dark");
+				document.documentElement.classList.add("light");
+			  }
+			})();
+		  </script>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap"
 			rel="stylesheet"
@@ -30,14 +46,17 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="" >
 		<Navbar />
 		<slot />
 	</body>
 </html>
 <style is:global>
+	.dark {
+		background-color: rgb(10, 10, 10);
+	}
+
 	html {
-		color-scheme: light;
 		font-family: system-ui, sans-serif;
 	}
 	* {
@@ -47,3 +66,4 @@ const { title } = Astro.props;
 		height: 100svh;
 	}
 </style>
+
