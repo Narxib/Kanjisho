@@ -11,7 +11,7 @@ export default function ThemeButton() {
     }
 
     return (
-        <button class="absolute top-0 right-0 bg-black" onClick={()=>toggleTheme()} aria-label="Toggle theme">
+        <button class="flex absolute w-6 h-6 top-12 p-8 justify-center items-center hover:bg-black/20 right-12 rounded-full" onClick={()=>toggleTheme()} aria-label="Toggle theme">
             <span>{theme === "dark" ? "🌞" : "🌙"}</span>
         </button>
     )

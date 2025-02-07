@@ -3,6 +3,7 @@ interface Props {
 	title: string;
 }
 import Navbar from "../components/Navbar.astro";
+import ThemeButton from "../components/ThemeButton";
 import { initTheme } from "../utils/theme.js";
 const { title } = Astro.props;
 ---
@@ -13,7 +14,7 @@ const { title } = Astro.props;
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="stylesheet" type="text/css" href="/src/layouts/styles.css" />
+		<link rel="stylesheet" type="text/css" href="/src/styles.css" />
 		<link rel="icon" type="image/svg+xml" href="/icon.png" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,9 +24,13 @@ const { title } = Astro.props;
 			(function() {
 				initTheme()
 			  const theme = localStorage.getItem("theme") || "light";
+			  const nav = document.getElementById("navbar")
 			  if (theme === "dark") {
 				document.documentElement.classList.add("dark");
+				nav.classList.add("dark")
 			  } else {
+				nav.classList.remove("dark")
+				nav.classList.add("light")
 				document.documentElement.classList.remove("dark");
 				document.documentElement.classList.add("light");
 			  }
@@ -47,13 +52,25 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="" >
-		<Navbar />
+		<Navbar/>
 		<slot />
 	</body>
 </html>
 <style is:global>
 	.dark {
-		background-color: rgb(10, 10, 10);
+		background-color: #0A0A0A;
+	}
+	.dark #jisho{
+		color:white;
+	}
+
+	.dark #kanjiCard{
+		background-color: #0A0A0A;
+		color:white;
+	}
+	.dark #kanjis{
+		background-color: white;
+		border-radius: 10%;
 	}
 
 	html {
