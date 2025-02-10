@@ -82,17 +82,19 @@ console.log(fetchedData);
 const { kanji, radical, references, examples } = fetchedData;
 ---
 
-<section 
+<section
     class="flex h-auto justify-center pt-[100px] lg:flex lg:items-top items-center text-center"
 >
-    <div id="kanjiCard"
-        class="flex flex-col lg:flex-row lg:w-1/2 lg:h-1/2 mb-8 h-full w-11/12 content-center p-4 rounded-xl  transition-all duration-300 items-top justify-normal lg:items-center items-start"
+    <div
+        id="kanjiCard"
+        class="flex flex-col lg:flex-row lg:w-1/2 lg:h-1/2 mb-8 h-full w-11/12 content-center p-4 rounded-xl transition-all duration-300 items-top justify-normal lg:items-center items-start"
     >
         <!--Kanji -->
         <div
-            class="flex relative flex-col w-full lg:w-1/4  justify-center items-center lg:ml-4 h-auto"
+            class="flex relative flex-col w-full lg:w-1/4 justify-center items-center lg:ml-4 h-auto"
         >
-            <img id="kanjis"
+            <img
+                id="kanjis"
                 class="relative w-[140px] h-[140px]"
                 src={kanji.video.poster}
                 alt="kanji"
@@ -118,9 +120,11 @@ const { kanji, radical, references, examples } = fetchedData;
         </div>
         <!--Meanings -->
         <div
-            class="flex m-4  flex-col lg:flex-row  items-center justify-center h-full ml-5"
+            class="flex m-4 flex-col lg:flex-row items-center justify-center h-full ml-5"
         >
-            <div class="flex flex-col mx-2 h-2/3 w-1/4  lg:mr-2 items-center justify-center">
+            <div
+                class="flex flex-col mx-2 h-2/3 w-1/4 lg:mr-2 items-center justify-center"
+            >
                 <h2 class="font-oswald font-bold">MEANING</h2>
                 <h2 class="font-sans">{kanji.meaning.english}</h2>
                 <div class="flex justify-around mt-12">

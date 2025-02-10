@@ -2,22 +2,31 @@
 import Layout from "../../layouts/Layout.astro";
 import KanjiDisplay from "../../components/KanjiDisplay.astro";
 import VocabDisplay from "../../components/VocabDisplay.astro";
-
+import { API_KEY } from "astro:env/server";
 
 const term = Astro.params.kanji;
 
 const fetchKanji = async (term) => {
-    return await fetch(
-        `https://kanjialive-api.p.rapidapi.com/api/public/kanji/${term}`,
-        {
-            method: "GET",
-            headers: {
-                "x-rapidapi-key":
-                    "cd76a844dfmshd6ff1d53a7f74d5p1e6f2bjsnc4911c9e0550",
-                "x-rapidapi-host": "kanjialive-api.p.rapidapi.com",
-            },
-        },
-    ).then((data) => data.json());
+    async function getData() {
+        try {
+            const data = fetch(
+                `https://kanjialive-api.p.rapidapi.com/api/public/kanji/${term}`,
+                {
+                    method: "GET",
+                    headers: {
+                        "x-rapidapi-key": `${API_KEY}`,
+                        "x-rapidapi-host": "kanjialive-api.p.rapidapi.com",
+                    },
+                },
+            ).then((data) => data.json());
+            return data;
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    const data = await getData();
+    console.log("11111>", data);
+    return data;
 };
 const fetchedData = await fetchKanji(term);
 ---

@@ -11,7 +11,7 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="stylesheet" type="text/css" href="/src/styles.css" />
@@ -19,23 +19,23 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<script>
-		import { initTheme } from "../utils/theme";
+			import { initTheme } from "../utils/theme";
 
-			(function() {
-				initTheme()
-			  const theme = localStorage.getItem("theme") || "light";
-			  const nav = document.getElementById("navbar")
-			  if (theme === "dark") {
-				document.documentElement.classList.add("dark");
-				nav.classList.add("dark")
-			  } else {
-				nav.classList.remove("dark")
-				nav.classList.add("light")
-				document.documentElement.classList.remove("dark");
-				document.documentElement.classList.add("light");
-			  }
+			(function () {
+				initTheme();
+				const theme = localStorage.getItem("theme") || "light";
+				const nav = document.getElementById("navbar");
+				if (theme === "dark") {
+					document.documentElement.classList.add("dark");
+					nav.classList.add("dark");
+				} else {
+					nav.classList.remove("dark");
+					nav.classList.add("light");
+					document.documentElement.classList.remove("dark");
+					document.documentElement.classList.add("light");
+				}
 			})();
-		  </script>
+		</script>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap"
 			rel="stylesheet"
@@ -51,24 +51,24 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="" >
-		<Navbar/>
+	<body class="">
+		<Navbar />
 		<slot />
 	</body>
 </html>
 <style is:global>
 	.dark {
-		background-color: #0A0A0A;
+		background-color: #0a0a0a;
 	}
-	.dark #jisho{
-		color:white;
+	.dark #jisho {
+		color: white;
 	}
 
-	.dark #kanjiCard{
-		background-color: #0A0A0A;
-		color:white;
+	.dark #kanjiCard {
+		background-color: #0a0a0a;
+		color: white;
 	}
-	.dark #kanjis{
+	.dark #kanjis {
 		background-color: white;
 		border-radius: 10%;
 	}
@@ -76,13 +76,18 @@ const { title } = Astro.props;
 	html {
 		font-family: system-ui, sans-serif;
 	}
+
 	* {
 		box-sizing: border-box;
-		transition: .4s ease-in;
+		transition: 0.4s ease-in;
 	}
-	
+	h2,
+	h4,
+	p {
+		transition: none;
+	}
+
 	body {
 		height: 100svh;
 	}
 </style>
-
