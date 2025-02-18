@@ -1,4 +1,29 @@
 
+[data-theme="light"] {
+		background-color: white;
+        color:black;
+}
+
+[data-theme="dark"] {
+		background-color: black;
+        color:white;
+        
+}
+#kanjis{
+    background-color: white;
+    border-radius: 25px;
+    padding: 12px;
+}
+
+[data-theme="dark"] #jisho{
+    color:white;
+    
+}
+[data-theme="light"] #jisho{
+    color:black;
+    
+}
+
 
 #moonsvg {
     fill: black;
