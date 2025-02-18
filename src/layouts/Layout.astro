@@ -3,7 +3,7 @@ interface Props {
 	title: string;
 }
 import Navbar from "../components/Navbar.astro";
-import ThemeButton from "../components/ThemeButton";
+import ThemeButton from "../components/ThemeButton.jsx";
 import { initTheme } from "../utils/theme.js";
 const { title } = Astro.props;
 ---
@@ -30,9 +30,7 @@ const { title } = Astro.props;
 					nav.classList.add("dark");
 				} else {
 					nav.classList.remove("dark");
-					nav.classList.add("light");
 					document.documentElement.classList.remove("dark");
-					document.documentElement.classList.add("light");
 				}
 			})();
 		</script>

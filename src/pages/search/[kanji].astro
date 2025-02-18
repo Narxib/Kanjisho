@@ -29,6 +29,7 @@ const fetchKanji = async (term) => {
     return data;
 };
 const fetchedData = await fetchKanji(term);
+console.log(">>>>>>>>>>", fetchedData);
 ---
 
 <Layout title={`Results for ${term}`}>
