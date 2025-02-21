@@ -7,11 +7,13 @@ import Search from "../icons/search.jsx";
         KAN<span id="jisho" class="text-black font-anton">JISHO</span>
     </h1>
     <div
-        class="flex bg-zinc-100 border-gray-300 mt-4 rounded-xl lg:w-1/3 w-90%"
+        id="search-div"
+        class="flex border-gray-300 mt-4 rounded-xl lg:w-1/3 w-90%"
     >
         <form id="search-form" class="flex w-full">
             <input
-                class="bg-zinc-100 ml-4 text-[20px] w-full focus-visible:outline-none"
+                id="search"
+                class="ml-4 text-[20px] w-full focus-visible:outline-none"
                 type="text"
                 placeholder="Search..."
                 name="kanji"

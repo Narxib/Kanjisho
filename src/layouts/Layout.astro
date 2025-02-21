@@ -53,32 +53,21 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<ThemeButton client:only />
 		<Navbar />
 		<slot />
 	</body>
 </html>
 <style is:global>
-	.dark #jisho {
-		color: white;
-	}
-
-	.dark #kanjiCard {
-		background-color: #0a0a0a;
-		color: white;
-	}
-	.dark #kanjis {
-		background-color: white;
-		border-radius: 10%;
-	}
-
 	html {
 		font-family: system-ui, sans-serif;
 	}
 
-	* {
+	 {
 		box-sizing: border-box;
 		transition: 0.4s ease-in;
 	}
+	
 	h2,
 	h4,
 	p {

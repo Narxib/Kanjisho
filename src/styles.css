@@ -1,29 +1,104 @@
-
-[data-theme="light"] {
-		background-color: white;
-        color:black;
-}
+/*DARK THEME */
 
 [data-theme="dark"] {
-		background-color: black;
-        color:white;
-        
+    background-color: black;
+    color: white;
 }
-#kanjis{
+
+[data-theme="dark"] input:-webkit-autofill,
+[data-theme="dark"] input:-webkit-autofill:hover,
+[data-theme="dark"] input:-webkit-autofill:focus,
+[data-theme="dark"] textarea:-webkit-autofill,
+[data-theme="dark"] textarea:-webkit-autofill:hover,
+[data-theme="dark"] textarea:-webkit-autofill:focus,
+[data-theme="dark"] select:-webkit-autofill,
+[data-theme="dark"] select:-webkit-autofill:hover,
+[data-theme="dark"] select:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px rgb(70, 70, 70) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
+
+[data-theme="dark"] #jisho {
+    color: white;
+
+}
+
+[data-theme="dark"] #search-div,
+#search {
+    background-color: rgb(70, 70, 70);
+    color: rgb(255, 255, 255);
+}
+
+[data-theme="dark"] #search {
+    background-color: rgb(70, 70, 70);
+    color: rgb(255, 255, 255);
+}
+
+[data-theme="dark"] #search::placeholder {
+    color: rgb(243, 243, 243)
+}
+
+
+/*////// */
+
+/*LIGHT THEME */
+
+[data-theme="light"] {
+    background-color: white;
+    color: black;
+}
+
+[data-theme="light"] #search-div,
+#search {
+    background-color: rgb(223, 222, 222);
+    color: rgb(0, 0, 0);
+}
+
+[data-theme="light"] #search::placeholder {
+    color: aqua;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    -webkit-box-shadow: 0 0 0px 1000px rgb(223, 222, 222) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+[data-theme="light"] #search::placeholder {
+    color: rgb(36, 36, 36)
+}
+
+
+[data-theme="light"] #jisho {
+    color: black;
+
+}
+
+
+input:webkit-autofill {
+    background-color: red !important;
+}
+
+
+/*////// */
+
+
+#kanjis {
     background-color: white;
     border-radius: 25px;
     padding: 12px;
 }
-
-[data-theme="dark"] #jisho{
-    color:white;
-    
-}
-[data-theme="light"] #jisho{
-    color:black;
-    
-}
-
 
 #moonsvg {
     fill: black;
