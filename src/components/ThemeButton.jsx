@@ -19,7 +19,7 @@ export default function ThemeButton() {
 
     return (
         <button
-            className="flex text-red-400 absolute w-6 h-6 top-12 p-8 justify-center items-center hover:bg-black/20 right-12 rounded-full"
+            className="flex text-red-400 bg-white/20 w-6 h-6  p-8 justify-center items-center hover:bg-black/20 "
             onClick={toggleTheme}
             aria-label="Toggle theme"
         >
