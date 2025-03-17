@@ -1,39 +1,43 @@
 ---
+import { MoonIcon } from "../icons/moon";
 import Search from "../icons/search.jsx";
+import { SunIcon } from "../icons/sun";
 ---
 
-<div class="flex h-dvh flex-col justify-center align-middle items-center">
-    <h1 class="font-anton text-5xl text-sky-500">
-        KAN<span id="jisho" class="text-black font-anton">JISHO</span>
-    </h1>
-    <div
-        id="search-div"
-        class="flex border-gray-300 mt-4 rounded-xl lg:w-1/3 w-90%"
-    >
-        <form id="search-form" class="flex w-full">
-            <input
-                id="search"
-                class="ml-4 text-[20px] w-full focus-visible:outline-none"
-                type="text"
-                placeholder="Search..."
-                name="kanji"
-                maxlength="1"
-                required
-            />
-            <button
-                type="submit"
-                class="flex box-border items-center rounded-xl h-full p-4 ml-2 hover:bg-zinc-400"
-                ><i><Search /></i></button
-            >
-        </form>
-    </div>
+<div
+  class="flex h-dvh w-2/3 lg:w-1/3 flex-col justify-center align-middle items-center"
+>
+  <h1 class="font-anton text-5xl text-sky-500">
+    KAN<span id="jisho" class="text-black font-anton">JISHO</span>
+  </h1>
+  <div
+    id="search-div"
+    class="flex border-gray-300 mt-4 rounded-xl w-full w-90%"
+  >
+    <form id="search-form" class="flex w-full">
+      <input
+        id="search"
+        class="ml-4 text-[20px] w-full focus-visible:outline-none"
+        type="text"
+        placeholder="Search..."
+        name="kanji"
+        maxlength="1"
+        required
+      />
+      <button
+        type="submit"
+        class="flex box-border items-center rounded-xl h-full p-4 ml-2 hover:bg-zinc-400"
+        ><i><Search /></i></button
+      >
+    </form>
+  </div>
 </div>
 <script>
-    document
-        .getElementById("search-form")
-        .addEventListener("submit", function (event) {
-            event.preventDefault();
-            const input = event.target.kanji.value.trim();
-            window.location.replace(`/search/${input}`);
-        });
+  document
+    .getElementById("search-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      const input = event.target.kanji.value.trim();
+      window.location.replace(`/search/${input}`);
+    });
 </script>

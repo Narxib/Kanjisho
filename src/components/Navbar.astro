@@ -3,16 +3,18 @@ import NavbarLink from "./NavbarLink.astro";
 import ThemeButton from "./ThemeButton";
 ---
 
-<nav id="navbar" class="flex fixed w-full items-center">
+<nav id="navbar" class="flex fixed z-50 justify-between w-full items-center">
+  <div class="flex items-center w-1/2">
     <div class="ml-8 font-thin text-2xl">
-        <span class="font-anton text-sky-500">KAN</span><span
-            id="jisho"
-            class="font-anton">JISHO</span
-        >
+      <span class="font-anton text-sky-500">KAN</span><span
+        id="jisho"
+        class="font-anton">JISHO</span
+      >
     </div>
 
     <ul class="flex font-anton h-12 pl-8 items-center">
-        <NavbarLink route="/" name="Home" />
+      <NavbarLink route="/" name="Home" />
     </ul>
-    <ThemeButton client:load />
+  </div>
+  <ThemeButton client:load />
 </nav>
