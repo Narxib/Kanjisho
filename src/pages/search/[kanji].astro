@@ -7,31 +7,30 @@ import { API_KEY } from "astro:env/server";
 const term = Astro.params.kanji;
 
 const fetchKanji = async (term) => {
-    async function getData() {
-        try {
-            const data = fetch(
-                `https://kanjialive-api.p.rapidapi.com/api/public/kanji/${term}`,
-                {
-                    method: "GET",
-                    headers: {
-                        "x-rapidapi-key": `${API_KEY}`,
-                        "x-rapidapi-host": "kanjialive-api.p.rapidapi.com",
-                    },
-                },
-            ).then((data) => data.json());
-            return data;
-        } catch (e) {
-            console.log(e);
+  async function getData() {
+    try {
+      const data = fetch(
+        `https://kanjialive-api.p.rapidapi.com/api/public/kanji/${term}`,
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key": `${API_KEY}`,
+            "x-rapidapi-host": "kanjialive-api.p.rapidapi.com",
+          },
         }
+      ).then((data) => data.json());
+      return data;
+    } catch (e) {
+      console.log(e);
     }
-    const data = await getData();
-    console.log("11111>", data);
-    return data;
+  }
+  const data = await getData();
+  console.log("11111>", data);
+  return data;
 };
 const fetchedData = await fetchKanji(term);
-console.log(">>>>>>>>>>", fetchedData);
 ---
 
 <Layout title={`Results for ${term}`}>
-    <KanjiDisplay fetchedData={fetchedData} />
+  <KanjiDisplay fetchedData={fetchedData} />
 </Layout>
