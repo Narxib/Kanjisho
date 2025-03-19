@@ -25,12 +25,11 @@ const fetchKanji = async (term) => {
     }
   }
   const data = await getData();
-  console.log("11111>", data);
   return data;
 };
 const fetchedData = await fetchKanji(term);
 ---
 
-<Layout title={`Results for ${term}`}>
+<Layout title={` ${term} - Kanjisho.xyz`}>
   <KanjiDisplay fetchedData={fetchedData} />
 </Layout>

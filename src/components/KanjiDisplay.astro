@@ -138,18 +138,18 @@ const { kanji, radical, references, examples } = fetchedData;
 
       <div
         id="phrases"
-        class="flex flex-col px-4 w-full lg:w-2/3 border-t-[1px] border-white mt-12 mx-1 justify-center items-center h-auto"
+        class="flex flex-col px-4 w-full lg:w-2/3 border-t-[1px] border-white mt-4 mx-1 justify-center items-center h-auto"
       >
         <h2 class="font-oswald font-bold pt-12">Example use cases</h2>
         <div
-          class="flex flex-col lg:flex-row flex-wrap h-auto items-center justify-between w-full"
+          class="flex flex-col lg:flex-row py-2 flex-wrap h-auto items-center justify-between w-full"
         >
           {
             examples.map((example) => {
               return (
                 <div class="flex w-full justify-evenly  bg-gray-400/10 my-2 rounded-lg py-2">
                   <h2 class="font-sansjp font-base">{example.japanese}</h2>
-                  <h2 class="font-sans">{example.meaning.english}</h2>
+                  <h2 class="font-oswald">{example.meaning.english}</h2>
                 </div>
               );
             })
