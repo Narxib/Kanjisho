@@ -77,9 +77,9 @@ interface Props {
 }
 
 const { fetchedData } = Astro.props;
-console.log(fetchedData);
 
 const { kanji, radical, references, examples } = fetchedData;
+console.log(kanji.video.poster);
 ---
 
 <section
@@ -87,20 +87,28 @@ const { kanji, radical, references, examples } = fetchedData;
 >
   <div
     id="kanjiCard"
-    class="flex flex-col lg:w-1/2 lg:h-1/2 h-full w-11/12 content-center rounded-xl transition-all duration-300 items-top justify-normal lg:items-center items-center"
+    class="flex flex-col lg:w-full lg:h-1/2 h-full w-11/12 content-center rounded-xl transition-all duration-300 items-top justify-normal lg:items-center items-center"
   >
     <!--Kanji -->
     <div
       class="flex relative flex-col w-full lg:w-1/4 justify-center items-center lg:ml-4"
     >
-      <img
-        id="kanjis"
-        class="relative w-[140px] h-[140px]"
-        src={kanji.video.poster}
-        alt="kanji"
-      />
-
-      <div class="flex flex-col justify-center w-auto mt-8 mb-4">
+      <div id="svgCont">
+        <img
+          width="150px"
+          height="150px"
+          id="kanjisvg"
+          src={kanji.video.poster}
+        />
+      </div>
+      <div
+        class="flex
+          flex-col
+          justify-center
+          w-auto
+          mt-8
+          mb-4"
+      >
         <h4 class="font-bold font-sans">Radicals</h4>
         <img
           id="kanjis"
@@ -138,7 +146,7 @@ const { kanji, radical, references, examples } = fetchedData;
 
       <div
         id="phrases"
-        class="flex flex-col px-4 w-full lg:w-2/3 border-t-[1px] border-white mt-4 mx-1 justify-center items-center h-auto"
+        class="flex flex-col px-4 w-full lg:w-2/3 border-t-[1px] border-white/50 mt-14 mx-1 justify-center items-center h-auto"
       >
         <h2 class="font-oswald font-bold pt-12">Example use cases</h2>
         <div
@@ -147,9 +155,9 @@ const { kanji, radical, references, examples } = fetchedData;
           {
             examples.map((example) => {
               return (
-                <div class="flex w-full justify-evenly  bg-gray-400/10 my-2 rounded-lg py-2">
+                <div class="flex w-full justify-around  bg-gray-400/10 my-2 rounded-lg py-2">
                   <h2 class="font-sansjp font-base">{example.japanese}</h2>
-                  <h2 class="font-oswald">{example.meaning.english}</h2>
+                  <h2 class="font-sans">{example.meaning.english}</h2>
                 </div>
               );
             })

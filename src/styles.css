@@ -40,6 +40,10 @@
     color: rgb(243, 243, 243)
 }
 
+[data-theme="dark"] #kanjisvg{
+    filter: invert(100%) ;
+}
+
 
 
 
@@ -92,13 +96,16 @@ input:webkit-autofill {
 
 /*////// */
 
-
-#kanjis {
-    background-color: white;
+#svgCont{
+    display: flex;
+    flex-direction: column;
     border-radius: 25px;
-    padding: 12px;
+    padding:12px;
+
 }
+
 
 #moonsvg {
     fill: black;
 }
+
